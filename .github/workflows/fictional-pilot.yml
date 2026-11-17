@@ -1,0 +1,21 @@
+name: Fictional Profile E pilot
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: rams-fictional-public-pilot-001
+  cancel-in-progress: false
+
+jobs:
+  fictional-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Check fictional arithmetic
+        shell: bash
+        run: |
+          test "$((2 + 2))" -eq 4
+          printf '%s\n' 'FICTIONAL_PILOT_OK'
